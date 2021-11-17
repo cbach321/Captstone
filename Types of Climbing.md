@@ -13,3 +13,6 @@
 
 4. **Trad Climbing**: Trad Climbing is nearly identical to lead climbing, expcept the check points that the climber needs to clip into on their way up the wall are placed there by the climber themselves. This requires much more gear, and can be extremely dangerous if done incorrectly. Trad climbing is normally done in places where people don't normally climb. It is strictly done outside. 
 ![Use of Trad Climbing Gear](https://www.climbing.com/wp-content/uploads/2016/10/tradisradpromojpg.jpg) 
+
+
+## To return to the climbing 101 page, follow this link: 
