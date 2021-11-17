@@ -7,4 +7,5 @@
 ![outdoor climbing](https://outdoorgearlab-mvnab3pwrvp3t0.stackpathdns.com/photos/15/81/279616_31645_L2.jpg)
 
 - There are many different types of climbing. To learn more about the different types, follow this link: 
+- To return to the main page, follow this link here: (https://github.com/gesnkb/Grace-Sanders-Markdown/blob/main/README.md)
 
