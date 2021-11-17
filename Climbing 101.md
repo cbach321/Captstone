@@ -6,6 +6,6 @@
 ![indoor climbing](https://gripped.com/wp-content/uploads/2018/04/Allex-Up-2018.jpg)
 ![outdoor climbing](https://outdoorgearlab-mvnab3pwrvp3t0.stackpathdns.com/photos/15/81/279616_31645_L2.jpg)
 
-- There are many different types of climbing. To learn more about the different types, follow this link: 
+- There are many different types of climbing. To learn more about the different types, follow this link: [Different Types of Climbing](https://github.com/gesnkb/Grace-Sanders-Markdown/blob/main/Types%20of%20Climbing.md)
 - To return to the main page, follow this link here: [main markdown page](https://github.com/gesnkb/Grace-Sanders-Markdown/blob/main/README.md)
 
