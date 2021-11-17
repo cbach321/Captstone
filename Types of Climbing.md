@@ -15,4 +15,4 @@
 ![Use of Trad Climbing Gear](https://www.climbing.com/wp-content/uploads/2016/10/tradisradpromojpg.jpg) 
 
 
-## To return to the climbing 101 page, follow this link: 
+## To return to the main homepage, follow this link: [Main Markdown Page](https://github.com/gesnkb/Grace-Sanders-Markdown/blob/main/README.md)
