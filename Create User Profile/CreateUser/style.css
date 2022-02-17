@@ -10,6 +10,7 @@ body {
 
 .student-profile .card {
     border-radius: 10px;
+    /*background-color: #D7D7D7 */
 }
 
 .student-profile .card .card-header .profile_img {
@@ -17,8 +18,9 @@ body {
     height: 150px;
     object-fit: cover;
     margin: 10px auto;
-    border: 10px solid #ccc;
+    border: 10px solid #000;
     border-radius: 50%;
+    /*background-color: #D7D7D7*/
 }
 
 .student-profile .card h3 {
@@ -36,4 +38,12 @@ body {
     font-size: 14px;
     padding: 5px 10px;
     color: #000;
+}
+
+.submit-button{
+    width:auto;
+    height: auto;
+    float: right;
+    margin: 20px;
+
 }
