@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>Student Profile Page Design Example</title>
+    <title style= font-family: sans-serif;>Student Profile Page Design Example</title>
 
     <meta name="author" content="Codeconvey" />
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet"><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
@@ -62,8 +62,8 @@
           <input type="text" id="name" name= "name">
           </div>
           <div class="card-body">
-            <p class="mb-0"><strong class="pr-1">Student ID:</strong>321000001</p>
-            <p class="mb-0"><strong class="pr-1">Class:</strong>4</p>
+            <p class="mb-0"><strong class="pr-1">Student ID:</strong><input type="text" id="ID" name= "ID"></p>
+            <p class="mb-0"><strong class="pr-1">Pawprint:</strong><input type="text" id="paw" name= "paw"></p>
             <p class="mb-0"><strong class="pr-1">Section:</strong>A</p>
           </div>
         </div>
@@ -76,29 +76,53 @@
           <div class="card-body pt-0">
             <table class="table table-bordered">
               <tr>
-                <th width="30%">Roll</th>
+                  <label for="type"><th width="30%">Please Select Your School</th></label>
                 <td width="2%">:</td>
-                <td>125</td>
+                <td><select id="School">
+                    <option value="Eng">College of Engineering</option>
+                    <option value="Business">Trulaske School of Business</option>
+                    <option value="Nursing">Sinclair School of Nursing</option>
+                    <option value="Health">School of Health Professions</option>
+                     <option value="JSchool">Reynold's School of Journalism</option>   
+                    </select>
+                </td>
               </tr>
               <tr>
-                <th width="30%">Academic Year	</th>
+                <th width="30%">Please Select You Academic Year</th>
                 <td width="2%">:</td>
-                <td>2020</td>
+                <td><select id="Year">
+                    <option value="fresh">Freshman</option>
+                    <option value="soph">Sophomore</option>
+                    <option value="junior">Junior</option>
+                    <option value="senior">Senior</option> 
+                    </select></td>
               </tr>
               <tr>
-                <th width="30%">Gender</th>
+                <th width="30%">Please Specify Your Selected Major</th>
                 <td width="2%">:</td>
-                <td>Male</td>
+                <td> <input type="text" id="major" name= "major"></td>
               </tr>
               <tr>
-                <th width="30%">Religion</th>
+                <th width="30%">Please list off at least 5 classes you have taken, that you would be interested in as a minor</th>
                 <td width="2%">:</td>
                 <td>Group</td>
               </tr>
               <tr>
-                <th width="30%">blood</th>
+                <th width="30%">Please select any general hobbies/areas of interest </th>
                 <td width="2%">:</td>
-                <td>B+</td>
+                <td><select id="interests">
+                    <option value="hobby1">Music</option>
+                    <option value="hobby2">Exercise</option>
+                    <option value="hobby3">Outdoors</option>
+                    <option value="hobby4">Art</option> 
+                </select>
+                    <select id="interests2">
+                    <option value="hobby5">Music</option>
+                    <option value="hobby6">Exercise</option>
+                    <option value="hobby7">Outdoors</option>
+                    <option value="hobby8">Art</option> 
+                </select>
+                  </td>
               </tr>
             </table>
           </div>
@@ -109,7 +133,7 @@
             <h3 class="mb-0"><i class="far fa-clone pr-1"></i>Why are you entering this information?</h3>
           </div>
           <div class="card-body pt-0">
-              <p>Using the information you enter into your profile, we will be able to find the minor's offered by MU that are best suited for you.</p>
+              <p>We will use not only the specific classes you entered, but also the information you enteredt about your major, college, and year to determine a select list of minors that fit you best!.</p>
           </div>
         </div>
       </div>
@@ -120,8 +144,10 @@
            
     		</div>
 		</div>
+         <button class ="submit-button" type="button">Submit</button>
     </div>
 </section>
+   
      
 
 
