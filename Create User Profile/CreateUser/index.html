@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!CAptstone>
+<!Captstone>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
@@ -27,7 +27,7 @@
         </div>
         <div class="col-rt-2">
             <ul>
-                <li><a href="https://codeconvey.com/html-code-for-student-profile" title="Back to login page">Back to Tutorial</a></li>
+                <li><a href="" title="Back">Back to Login Page</a></li>
             </ul>
         </div>
     </div>
@@ -38,7 +38,7 @@
     	<div class="col-rt-12">
         	<div class="rt-heading">
             	<h1>Create a Profile</h1>
-                <p>A responsive student profile page design.</p>
+                <p style= "margin: 20px;">Please fill out all areas</p>
             </div>
         </div>
     </div>
@@ -58,13 +58,12 @@
           <div class="card-header bg-transparent text-center">
             <img class="profile_img" src="Truman.jpg" alt="student dp">
             <!--<h3>Chris Bachmann</h3> -->
-        <h3><label for="name">Enter Your Name:</label></h3>
+        <h3><label for="name">Enter Your First and Last Name:</label></h3>
           <input type="text" id="name" name= "name">
           </div>
           <div class="card-body">
             <p class="mb-0"><strong class="pr-1">Student ID:</strong><input type="text" id="ID" name= "ID"></p>
-            <p class="mb-0"><strong class="pr-1">Pawprint:</strong><input type="text" id="paw" name= "paw"></p>
-            <p class="mb-0"><strong class="pr-1">Section:</strong>A</p>
+            <p class="mb-0"><strong class="pr-1">Pawprint:</strong><input type="text" id="paw" name="paw"></p>
           </div>
         </div>
       </div>
@@ -100,12 +99,12 @@
               <tr>
                 <th width="30%">Please Specify Your Selected Major</th>
                 <td width="2%">:</td>
-                <td> <input type="text" id="major" name= "major"></td>
+                <td> If you don't yet have a major, please enter "Undeclared" <input type="text" id="major" name= "major"></td>
               </tr>
               <tr>
                 <th width="30%">Please list off at least 5 classes you have taken, that you would be interested in as a minor</th>
                 <td width="2%">:</td>
-                <td>Group</td>
+                <td> *Please seperate your listed classes with commas<input style = "height: 120px; width: 300px; " type="text" id="classes" name= "classes"></td>
               </tr>
               <tr>
                 <th width="30%">Please select any general hobbies/areas of interest </th>
@@ -121,6 +120,12 @@
                     <option value="hobby6">Exercise</option>
                     <option value="hobby7">Outdoors</option>
                     <option value="hobby8">Art</option> 
+                </select>
+                    <select id="interests3">
+                    <option value="hobby9">Music</option>
+                    <option value="hobby10">Exercise</option>
+                    <option value="hobby11">Outdoors</option>
+                    <option value="hobby12">Art</option> 
                 </select>
                   </td>
               </tr>
@@ -144,7 +149,7 @@
            
     		</div>
 		</div>
-         <button class ="submit-button" type="button">Submit</button>
+         <button style= "font-family: 'Graphik', sans-serif ;" class ="submit-button" type="button">Submit</button>
     </div>
 </section>
    
