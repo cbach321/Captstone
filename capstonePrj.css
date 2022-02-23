@@ -9,9 +9,33 @@ body {
   color: #000;
 }
 
+img {
+  width: 50px;
+  height: 60px;
+}
+
+#logoText {
+  font-size: 20px;
+}
+
+/*FIX THIS SHIT*/
+section {
+    min-height: 100vh; /* minus the height of the footer */
+    overflow: hidden;
+    margin: 0px;
+    padding: 0px;
+}
+
+h1 {
+  text-align: center;
+  padding: 30px;
+  background-color: #D7D7D7;
+  font-weight: bold;;
+}
+
 .wrapper {
   text-align: center;
-  margin-top: 80px;
+  margin-top: 60px;
   margin-bottom: 80px;
   border-radius: 2px;
 }
@@ -39,6 +63,32 @@ body {
   border-color: black;
 }
 
+.active, .btn:hover {
+  background-color: #8F8884;
+  color: white;
+  border-color: #8F8884;
+}
+
+.footer {
+  background-color: black;
+  text-align: center;
+  color: #F1B82D;
+}
+
+.link {
+  color: #F1B82D;
+}
+
+.active, .link:hover {
+  text-decoration: none;
+  color: white;
+}
+
+#foot {
+  background-color: black;
+  padding: 5px;
+}
+
 .form-control {
   position: relative;
   font-size: 16px;
@@ -48,7 +98,6 @@ body {
 &:focus {
     z-index: 2;
 } */
-}
 
 input[type="text"] {
 margin-bottom: -1px;
