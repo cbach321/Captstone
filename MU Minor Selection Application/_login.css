@@ -1,0 +1,110 @@
+@import "bourbon";
+
+body {
+  background: #F1B82D;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #4ca2cd, #67B26F);  /* Chrome 10-25, Safari 5.1-6 */
+  padding: 0;
+  margin: 0;
+  font-family: 'Graphik Condensed', 'Clarendon URW', 'Open Sans' ;
+  color: #000;
+}
+
+img {
+  width: 50px;
+  height: 60px;
+}
+
+#logoText {
+  font-size: 20px;
+}
+
+/*FIX THIS SHIT*/
+section {
+    min-height: 100vh; /* minus the height of the footer */
+    overflow: hidden;
+    margin: 0px;
+    padding: 0px;
+}
+
+h1 {
+  text-align: center;
+  padding: 30px;
+  background-color: #D7D7D7;
+  font-weight: bold;;
+}
+
+.wrapper {
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 80px;
+  border-radius: 2px;
+}
+
+.form-signin {
+  max-width: 250px;
+  padding: 45px 35px 45px;
+  margin: 0 auto;
+  background-color: #F1B82D;
+  border: 1px solid black;
+}
+
+.form-signin-heading, .checkbox {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.checkbox {
+  font-weight: normal;
+}
+
+.btn {
+  background-color: #F1B82D;
+  color: black;
+  border-color: black;
+}
+
+.active, .btn:hover {
+  background-color: #8F8884;
+  color: white;
+  border-color: #8F8884;
+}
+
+.footer {
+  background-color: black;
+  text-align: center;
+  color: #F1B82D;
+}
+
+.link {
+  color: #F1B82D;
+}
+
+.active, .link:hover {
+  text-decoration: none;
+  color: white;
+}
+
+#foot {
+  background-color: black;
+  padding: 5px;
+}
+
+.form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+/* @include box-sizing(border-box);
+&:focus {
+    z-index: 2;
+} */
+
+input[type="text"] {
+margin-bottom: -1px;
+border: 2px solid black;
+}
+
+input[type="password"] {
+margin-bottom: 20px;
+border: 2px solid black;
+}
