@@ -89,6 +89,11 @@ body {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+.footer {
+    font-family: sans-serif, "Graphik";
+    background-color: #D7D7D7;
+}
+
 hr {
   margin: 1rem 0;
   color: inherit;
