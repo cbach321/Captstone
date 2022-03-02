@@ -57,8 +57,9 @@
                   <input type="text" id="name" name= "name">
                   </div>
                   <div class="card-body">
-                    <p class="mb-0"><strong class="pr-1">Student ID:</strong><input type="text" id="ID" name= "ID"></p>
-                    <p class="mb-0"><strong class="pr-1">Pawprint:</strong><input type="text" id="paw" name="paw"></p>
+                    <p class="mb-0"><strong class="pr-1">Please select a Username:</strong><input type="text" id="user" name= "user"></p>
+                    <p> </p>
+                    <p class="mb-0"><strong class="pr-1">Please Create a Password</strong><input type="text" id="pass" name="pass"></p>
                   </div>
                 </div>
               </div>
@@ -99,28 +100,24 @@
                       <tr>
                         <th width="30%">Please list off at least 5 classes you have taken, that you would be interested in as a minor</th>
                         <td width="2%">:</td>
-                        <td> *Please seperate your listed classes with commas<input style = "height: 120px; width: 300px; " type="text" id="classes" name= "classes"></td>
+                        <td><select id="courses" multiple>
+                            <option value="Eng">INFOTC 1000</option>
+                            <option value="Business">CMP SCI 1050</option>
+                            <option value="Nursing">INFOTC 2830</option>
+                            <option value="Health">CMP SCI 3380</option>
+                             <option value="JSchool">INFOTC 1040</option> 
+                            <!-- For better UI, JS will later need to be added to make for checkboxes in the drop down menu. For now the shift key can be held down to make multiple selections -->
+                            </select></td>
                       </tr>
                       <tr>
                         <th width="30%">Please select any general hobbies/areas of interest </th>
                         <td width="2%">:</td>
-                        <td><select id="interests">
+                        <td><select id="interests" multiple>
                             <option value="hobby1">Music</option>
                             <option value="hobby2">Exercise</option>
                             <option value="hobby3">Outdoors</option>
                             <option value="hobby4">Art</option> 
-                        </select>
-                            <select id="interests2">
-                            <option value="hobby5">Music</option>
-                            <option value="hobby6">Exercise</option>
-                            <option value="hobby7">Outdoors</option>
-                            <option value="hobby8">Art</option> 
-                        </select>
-                            <select id="interests3">
-                            <option value="hobby9">Music</option>
-                            <option value="hobby10">Exercise</option>
-                            <option value="hobby11">Outdoors</option>
-                            <option value="hobby12">Art</option> 
+                            <option value="hobby5">Technology</option>
                         </select>
                           </td>
                       </tr>
