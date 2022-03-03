@@ -4,8 +4,8 @@
     <head>
         <title style= font-family: sans-serif;>Student Profile Page Design Example</title>
         <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="Codeconvey"/>
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet"><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css'>
@@ -74,11 +74,15 @@
                           <label for="type"><th width="30%">Please Select Your School</th></label>
                         <td width="2%">:</td>
                         <td><select id="School">
+                            <option value="CAFNR">College of Agriculture, Food and Natural Resources</option>
+                            <option value="Arts">College of Arts and Science</option>
+                            <option value="Education">College of Education and Human Development</option>
                             <option value="Eng">College of Engineering</option>
-                            <option value="Business">Trulaske School of Business</option>
-                            <option value="Nursing">Sinclair School of Nursing</option>
+                            <option value="Vet">College of Veterinary Medicine</option>
+                            <option value="JSchool">Missouri School of Journalism</option>
                             <option value="Health">School of Health Professions</option>
-                             <option value="JSchool">Reynold's School of Journalism</option>   
+                            <option value="Nursing">Sinclair School of Nursing</option>
+                            <option value="Business">Trulaske College of Business</option>
                             </select>
                         </td>
                       </tr>
@@ -89,10 +93,11 @@
                             <option value="fresh">Freshman</option>
                             <option value="soph">Sophomore</option>
                             <option value="junior">Junior</option>
-                            <option value="senior">Senior</option> 
+                            <option value="senior">Senior</option>
                             </select></td>
                       </tr>
                       <tr>
+                        <!-- need to list majors out to select, including undeclared -->
                         <th width="30%">Please Specify Your Selected Major</th>
                         <td width="2%">:</td>
                         <td> If you don't yet have a major, please enter "Undeclared" <input type="text" id="major" name= "major"></td>
@@ -105,7 +110,7 @@
                             <option value="Business">CMP SCI 1050</option>
                             <option value="Nursing">INFOTC 2830</option>
                             <option value="Health">CMP SCI 3380</option>
-                             <option value="JSchool">INFOTC 1040</option> 
+                             <option value="JSchool">INFOTC 1040</option>
                             <!-- For better UI, JS will later need to be added to make for checkboxes in the drop down menu. For now the shift key can be held down to make multiple selections -->
                             </select></td>
                       </tr>
@@ -113,11 +118,15 @@
                         <th width="30%">Please select any general hobbies/areas of interest </th>
                         <td width="2%">:</td>
                         <td><select id="interests" multiple>
-                            <option value="hobby1">Music</option>
-                            <option value="hobby2">Exercise</option>
-                            <option value="hobby3">Outdoors</option>
-                            <option value="hobby4">Art</option> 
-                            <option value="hobby5">Technology</option>
+                            <option value="business">Business and Commerce</option>
+                            <option value="Comm">Communication, Journalism, Writing, and Media</option>
+                            <option value="STEM">Computing, Engineering, Math, and Applied Science</option>
+                            <option value="art">Creative, Design, and Performing Arts</option>
+                            <option value="culture">Culture and Society</option>
+                            <option value="education">Education and Helping Professions</option>
+                            <option value="medical">Health, Wellness, and Medical</option>
+                            <option value="nature">Natural, Evironmental, and Life Sciences</option>
+                            <option value="psych">Social and Behavioral</option>
                         </select>
                           </td>
                       </tr>
@@ -130,7 +139,7 @@
                     <h3 class="mb-0"><i class="far fa-clone pr-1"></i>Why are you entering this information?</h3>
                   </div>
                   <div class="card-body pt-0">
-                      <p>We will use not only the specific classes you entered, but also the information you enteredt about your major, college, and year to determine a select list of minors that fit you best!.</p>
+                      <p>We will use not only the specific classes you entered, but also the information you enteredt about your major, college, and year to determine a select list of minors that fit you best!</p>
                   </div>
                 </div>
               </div>
