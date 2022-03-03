@@ -11294,3 +11294,11 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+
+.college, .advisor, .description{
+    text-align: center;
+}
+
+html{
+    scroll-behavior: smooth;
+}
