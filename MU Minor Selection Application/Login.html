@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title style= font-family: sans-serif;>LOGIN</title>
+        <title style= font-family: sans-serif;>Welcome to MU Minor Match</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="Codeconvey" />
@@ -11,35 +11,43 @@
    <!--Only for demo purpose - no need to add.-->
    <!--<link rel="stylesheet" href="style.css" />-->
         <link rel= "stylesheet" href="_login.css">
+        <link rel= "stylesheet" href="Login.js">
     </head>
 
     <body>
       <section>
         <h1>University of Missouri Minor Match</h1>
-        <div class="wrapper">
+        <div id="login_div" class="wrapper">
             <form class="form-signin">
               <h2 class="form-signin-heading">LOGIN</h2>
-              <input type="text" class="form-control" name="username" placeholder="Email Address" required="" autofocus="" /> <br>
-              <input type="password" class="form-control" name="password" placeholder="Password" required=""/> <br>
+              <input type="text" class="form-control" name="username" placeholder="Email Address" id= "email" required="" autofocus="" /> <br>
+              <input type="password" class="form-control" name="password" placeholder="Password" id= "password" required=""/> <br>
               <label class="checkbox">
                 <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
               </label>
-              <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button><br>
+              <button class="btn btn-lg btn-primary btn-block" onclick= "login()">Login</button><br>
               <p>Don't have an account?</p>
-                <button class="btn" type="button" onclick = "window.location.href='CreateProfile.html'">Sign Up</button>
+              <button class="btn" type="button">Sign Up</button>
             </form>
         </div>
+<!--
+        <div id="user_div" class="loggedin">
+              <h3>Welcome User!</h3>
+        
+        
+        </div>
+-->
       </section>
-        <footer>
-          <!-- fix link isssues, just want find your major and email to link only -->
-            <div class="footer">
-              <p id="logoText"><img src="/Users/sophiawilson/Downloads/University_of_Missouri_logo.png" alt="Missouri Logo">University of Missouri<br></p>
-              <h1 id="foot">Contact Us</h1>
-              <h4>Minors at Mizzou</h4>
-                <h5><a class="link" href="https://majors.missouri.edu">Find your Major </a></h5>
+<!--        <footer>-->
+      <!-- fix link isssues, just want find your major and email to link only -->
+        <div class="footer">
+          <p id="logoText"><img src="/Users/sophiawilson/Downloads/University_of_Missouri_logo.png" alt="Missouri Logo">University of Missouri<br></p>
+          <h1 id="foot">Contact Us</h1>
+          <h4>Minors at Mizzou</h4>
+            <h5><a class="link" href="https://majors.missouri.edu">Find your Major</a></h5>
               <p>University Registrar, 125 Jesse Hall, Columbia, MO 65211 <br> Phone: 573-882-7881 | E-mail: <a class="link" href="mailto:umcunivregistrarwr@missouri.edu">umcunivregistrarwr@missouri.edu<br>Published 2022.</a></p>
-            </div>
-        </footer>
+        </div>
+<!--        </footer>-->
       <script type="module">
           // Import the functions you need from the SDKs you need
           import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
@@ -59,5 +67,6 @@
           // Initialize Firebase
           const app = initializeApp(firebaseConfig);
       </script>
+      <script src= "Login.js"></script>
     </body>
 </html>
