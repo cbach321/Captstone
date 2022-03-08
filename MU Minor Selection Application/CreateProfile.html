@@ -21,8 +21,8 @@
 
                 </div>
                 <div class="col-rt-2" >
-                    <ul>
-                        <li><a href="Login.html" title="Back">Back to Login Page</a></li>
+                    <ul style = "margin: 5px;">
+                       <a href="Login.html" title="Back">Back to Login Page</a>
                     </ul>
                 </div>
             </div>
@@ -32,7 +32,7 @@
             <div class="rt-container">
                 <div class="col-rt-12">
                     <div class="rt-heading">
-                        <h1>Create a Profile</h1>
+                        <h1 style= "margin: 20px; ">Create a Profile</h1>
                         <p style= "margin: 20px;">Please fill out all areas</p>
                     </div>
                 </div>
@@ -57,7 +57,7 @@
                   <input type="text" id="name" name= "name">
                   </div>
                   <div class="card-body">
-                    <p class="mb-0"><strong class="pr-1">Please select a Username:</strong><input type="text" id="user" name= "user"></p>
+                    <p class="mb-0"><strong class="pr-1">Please enter your email (this will serve as your username):</strong><input type="text" id="user" name= "user"></p>
                     <p> </p>
                     <p class="mb-0"><strong class="pr-1">Please Create a Password</strong><input type="text" id="pass" name="pass"></p>
                   </div>
@@ -71,7 +71,8 @@
                   <div class="card-body pt-0">
                     <table class="table table-bordered">
                       <tr>
-                          <label for="type"><th width="30%">Please Select Your School</th></label>
+                          
+                         <!-- <label for="type"><th width="30%">Please Select Your School</th></label>
                         <td width="2%">:</td>
                         <td><select id="School">
                             <option value="CAFNR">College of Agriculture, Food and Natural Resources</option>
@@ -84,38 +85,49 @@
                             <option value="Nursing">Sinclair School of Nursing</option>
                             <option value="Business">Trulaske College of Business</option>
                             </select>
-                        </td>
+                        </td> -->
                       </tr>
                       <tr>
-                        <th width="30%">Please Select You Academic Year</th>
+                         <!--<th width="30%">Please Select You Academic Year</th>
                         <td width="2%">:</td>
                         <td><select id="Year">
                             <option value="fresh">Freshman</option>
                             <option value="soph">Sophomore</option>
                             <option value="junior">Junior</option>
                             <option value="senior">Senior</option>
-                            </select></td>
+                            </select></td> -->
                       </tr>
                       <tr>
                         <!-- need to list majors out to select, including undeclared -->
                         <th width="30%">Please Specify Your Selected Major</th>
                         <td width="2%">:</td>
-                        <td> If you don't yet have a major, please enter "Undeclared" <input type="text" id="major" name= "major"></td>
+                        <td> If you don't yet have a major, please select "Undeclared" <select id="engMajors" multiple>
+                            <option value="M1">Biological Engineering</option>
+                            <option value="M2">Biomedical Engineering</option>
+                            <option value="M3">Chemical Engineering (biochemical)</option>
+                            <option value="M4">Chemical Engineering (environmental)</option>
+                            <option value="M5">Chemical Engineering (materials)</option>
+                            <option value="M6">Civil Engineering</option>
+                            <option value="M7">Computer Engineering</option>
+                            <option value="M8">Computer Science</option>
+                            <option value="M10">Electrical Engineering</option>
+                            <option value="M11">Industrial Engineering</option>
+                            <option value="M12">Information Technology</option>
+                            <option value="M13">Mechanical Engineering</option>
+                            <option value="M14">Undeclared</option>
+                        </select></td>
                       </tr>
                       <tr>
-                        <th width="30%">Please list off at least 5 classes you have taken, that you would be interested in as a minor</th>
+                        <th width="30%">Please upload a photo of your transcript (this can be retrieved off your MyZou Student Account)</th>
                         <td width="2%">:</td>
-                        <td><select id="courses" multiple>
-                            <option value="Eng">INFOTC 1000</option>
-                            <option value="Business">CMP SCI 1050</option>
-                            <option value="Nursing">INFOTC 2830</option>
-                            <option value="Health">CMP SCI 3380</option>
-                             <option value="JSchool">INFOTC 1040</option>
-                            <!-- For better UI, JS will later need to be added to make for checkboxes in the drop down menu. For now the shift key can be held down to make multiple selections -->
-                            </select></td>
+                        <td><form action="/action_page.php">
+                            <label for="img">Select image:</label>
+                            <input type="file" id="img" name="img" accept="image/*">
+                            <input type="submit">
+                            </form></td>
                       </tr>
                       <tr>
-                        <th width="30%">Please select any general hobbies/areas of interest </th>
+                       <!-- <th width="30%">Please select any general hobbies/areas of interest </th>
                         <td width="2%">:</td>
                         <td><select id="interests" multiple>
                             <option value="business">Business and Commerce</option>
@@ -128,7 +140,7 @@
                             <option value="nature">Natural, Evironmental, and Life Sciences</option>
                             <option value="psych">Social and Behavioral</option>
                         </select>
-                          </td>
+                          </td> -->
                       </tr>
                     </table>
                   </div>
@@ -139,7 +151,7 @@
                     <h3 class="mb-0"><i class="far fa-clone pr-1"></i>Why are you entering this information?</h3>
                   </div>
                   <div class="card-body pt-0">
-                      <p>We will use not only the specific classes you entered, but also the information you enteredt about your major, college, and year to determine a select list of minors that fit you best!</p>
+                      <p>We will use the classes that you have taken during your time at Mizzou to determine the minors you are closest to completing</p>
                   </div>
                 </div>
               </div>
