@@ -12,6 +12,48 @@
         <link rel="stylesheet" href="_createprofile.css">
     </head>
     <body>
+        <script type="module">
+                // Import the functions you need from the SDKs you need
+            import { initializeApp } from "firebase/app";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyBJj8-roAqatS4RAvhhivO3-g6C9Kom_-k",
+          authDomain: "muminormatch.firebaseapp.com",
+          databaseURL: "https://muminormatch-default-rtdb.firebaseio.com",
+          projectId: "muminormatch",
+          storageBucket: "muminormatch.appspot.com",
+          messagingSenderId: "24369000206",
+          appId: "1:24369000206:web:e213ef859e9f8c8444315f"
+        };
+         const app = initializeApp(firebaseConfig);
+        </script>
+        
+        <script>
+            
+            function writeData(){
+                firebase.database().ref("User").set({
+                    name: doucment.getElementById("name").value
+                });
+                
+                getData();
+            }
+            function getData() {
+                firebase.database().ref('/').once('value', function(snapshot)){
+                    snapshot.forEach(function(childSnapshot))
+                {
+                var childKey = snapshot.key;
+                var childData = childSnapshot.val();
+                document.getElementById("data").innerHTML = childData['name'];
+                }
+            }
+        }
+
+// Initialize Firebase
+//const app = initializeApp(firebaseConfig);
+        </script>
 
         <div class="ScriptTop">
             <div class="rt-container">
@@ -34,6 +76,7 @@
                     <div class="rt-heading">
                         <h1 style= "margin: 20px; ">Create a Profile</h1>
                         <p style= "margin: 20px;">Please fill out all areas</p>
+                        <p id= "data"></p>
                     </div>
                 </div>
             </div>
@@ -118,12 +161,12 @@
                         </select></td>
                       </tr>
                       <tr>
-                        <th width="30%">Please upload a photo of your transcript (this can be retrieved off your MyZou Student Account)</th>
+                        <th width="30%">Please upload a ypur transcript document (this can be retrieved off your MyZou Student Account)</th>
                         <td width="2%">:</td>
-                        <td><form action="/action_page.php">
-                            <label for="img">Select image:</label>
-                            <input type="file" id="img" name="img" accept="image/*">
-                            <input type="submit">
+                        <td><form action="createProfile.php" method="post" enctype="multipart/form-data">
+                            Upload Transcript:
+                            <input type="file" name="fileToUpload" id="fileToUpload">
+                            <input type="submit" value="Upload" name="submit">
                             </form></td>
                       </tr>
                       <tr>
@@ -162,7 +205,7 @@
 
                     </div>
                 </div>
-                 <button style= "font-family: 'Graphik', sans-serif ;" class ="submit-button" type="button">Submit</button>
+                 <button style= "font-family: 'Graphik', sans-serif ;" class ="submit-button" type="button" onclic k= "writeData()" >Submit</button>
             </div>
         </section>
 
