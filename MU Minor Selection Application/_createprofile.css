@@ -46,5 +46,29 @@ body {
     float: right;
     margin: 20px;
     font-family:'Graphik', sans-serif;
+}
 
+.footer {
+  background-color: black;
+  text-align: center;
+  color: #F1B82D;
+  position: fixed;
+  bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.link {
+  color: #F1B82D;
+}
+
+.active, .link:hover {
+  text-decoration: none;
+  color: white;
+}
+
+#foot {
+  background-color: black;
+  padding: 5px;
+  
 }
