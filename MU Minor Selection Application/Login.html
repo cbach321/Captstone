@@ -13,8 +13,13 @@
         <link rel= "stylesheet" href="_login.css">
         <link rel= "stylesheet" href="Login.js">
     </head>
+<<<<<<< Updated upstream
     <style>
         
+=======
+    
+    
+>>>>>>> Stashed changes
 
     
     
@@ -26,25 +31,23 @@
       <section>
         <h1>University of Missouri Minor Match</h1>
         <div id="login_div" class="wrapper">
-            <form class="form-signin">
+            <form action="/Home.html" class="form-signin">
               <h2 class="form-signin-heading">LOGIN</h2>
               <input type="text" class="form-control" name="username" placeholder="Email Address" id= "email" required="" autofocus="" /> <br>
               <input type="password" class="form-control" name="password" placeholder="Password" id= "password" required=""/> <br>
               <label class="checkbox">
                 <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
               </label>
+<<<<<<< Updated upstream
               <a href="Home.html"><button class="btn btn-lg btn-primary btn-block" onclick= "login()">Login</button></a>
+=======
+                <button type=submit class="btn btn-lg btn-primary btn-block" id='login' name='login'>Login</button><br>
+>>>>>>> Stashed changes
               <p>Don't have an account?</p>
               <a href="Signup.html"><button class="btn2" type="button">Sign Up</button></a>
             </form>
         </div>
-<!--
-        <div id="user_div" class="loggedin">
-              <h3>Welcome User!</h3>
 
-
-        </div>
--->
       </section>
 <!--        <footer>-->
         <div class="footer">
@@ -54,26 +57,62 @@
             <h5><a class="link" href="https://majors.missouri.edu">Find your Major</a></h5>
               <p>University Registrar, 125 Jesse Hall, Columbia, MO 65211 <br> Phone: 573-882-7881 | E-mail: <a class="link" href="mailto:umcunivregistrarwr@missouri.edu">umcunivregistrarwr@missouri.edu</a><br>Published 2022.</p>
         </div>
-<!--        </footer>-->
-      <script type="module">
-          // Import the functions you need from the SDKs you need
-          import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
-          // TODO: Add SDKs for Firebase products that you want to use
-          // https://firebase.google.com/docs/web/setup#available-libraries
-
-          // Your web app's Firebase configuration
-          const firebaseConfig = {
-            apiKey: "AIzaSyBJj8-roAqatS4RAvhhivO3-g6C9Kom_-k",
-            authDomain: "muminormatch.firebaseapp.com",
-            projectId: "muminormatch",
-            storageBucket: "muminormatch.appspot.com",
-            messagingSenderId: "24369000206",
-            appId: "1:24369000206:web:e213ef859e9f8c8444315f"
-          };
-
-          // Initialize Firebase
-          const app = initializeApp(firebaseConfig);
-      </script>
-      <script src= "Login.js"></script>
     </body>
+    
+    
+    
+    
+    
+    
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js";
+      import { getDatabase, ref, update } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-database.js";
+      import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyBJj8-roAqatS4RAvhhivO3-g6C9Kom_-k",
+        authDomain: "muminormatch.firebaseapp.com",
+        databaseURL: "https://muminormatch-default-rtdb.firebaseio.com",
+        projectId: "muminormatch",
+        storageBucket: "muminormatch.appspot.com",
+        messagingSenderId: "24369000206",
+        appId: "1:24369000206:web:e213ef859e9f8c8444315f"
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const database = getDatabase(app);
+      const auth = getAuth();
+        
+      login.addEventListener('click', (e)=>{
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
+
+            signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+
+                const user = userCredential.user;
+
+                const dt = new Date();
+
+                update(ref(database, 'users/' + user.uid),{
+                    last_login: dt,
+                })
+
+                alert('User logged in!'); 
+            })
+            .catch((error) =>{
+                const errorCode = error.code;
+                const errorMessage = error.message;
+
+                alert(errorMessage);
+
+            });
+          });
+        </script>
+<!--    <script type='module' src= "Login.js"></script>-->
 </html>
