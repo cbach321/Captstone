@@ -74,82 +74,62 @@
             <div class="rt-container">
                 <div class="col-rt-12">
                     <div class="rt-heading">
-                        <h1 style= "margin: 20px; ">Create a Profile</h1>
-                        <p style= "margin: 20px;">Please fill out all areas</p>
-                        <p id= "data"></p>
+                        <h2>Create Your Profile</h2>
+                        <p>Please fill out all areas</p>
                     </div>
                 </div>
             </div>
         </header>
-
+        
         <section>
-            <div class="rt-container">
-                  <div class="col-rt-12">
-                      <div class="Scriptcontent">
-
+            
         <!-- Student Profile -->
-        <div class="student-profile py-4">
+
           <div class="container">
-            <div class="row">
               <div class="col-lg-4">
-                <div class="card shadow-sm">
+                <div class="card shadow-sm" style="height: 650px">
                   <div class="card-header bg-transparent text-center">
               
-                    <!--<h3>Chris Bachmann</h3> -->
+                    
                 <h3><label for="name">How to Obtain your Transcripts</label></h3>
                   </div>
                   <div class="card-body">
-                    <p class="mb-0">Steps to get Transcripts from Myzou</p>
+                    <p class="mb-0">Steps to get your Transcripts from Myzou</p>
                     <p> </p>
-                    <p class="mb-0">MORE</p>
-                      <p class="mb-0">MORE</p>
-                      <p class="mb-0">MORE</p>
-                      <p class="mb-0">MORE</p>
-                      <p class="mb-0">MORE</p>
-                      <p class="mb-0">MORE</p>
-                      <p class="mb-0">MORE</p>
-                      <p class="mb-0">MORE</p>
+                    <p class="mb-10">Step 1: Visit https://mizzouone.missouri.edu/task/all/student-information-center</p>
+                      <br>
+                      <p class="mb-10">Step 2: Sign in </p>
+                      <br>
+                      <p class="mb-10">Step 3: Navigate to "Academic Records"</p>
+                      <br>
+                      <p class="mb-10">Step 4: Navigate to "Req. Student Academic Profile"</p>
+                      <br>
+                      <p class="mb-10">Step 5: Click Submit</p>
+                      <br>
+                      <p class="mb-10">You will then receive and email with your unofficial transcripts. Please upload this file under "Choose File" under "Your Information" </p>
+                     
+      
                   </div>
                 </div>
               </div>
               <div class="col-lg-8">
-                <div class="card shadow-sm">
+                <div class="card shadow-sm" style="height: 550px">
                   <div class="card-header bg-transparent border-0">
-                    <h3 class="mb-0"><i class="far fa-clone pr-1"></i>General Information</h3>
+                    <h6 class="mb-1">Your Information</h6>
                   </div>
                   <div class="card-body pt-0">
                     <table class="table table-bordered">
                       <tr>
                           
-                         <!-- <label for="type"><th width="30%">Please Select Your School</th></label>
-                        <td width="2%">:</td>
-                        <td><select id="School">
-                            <option value="CAFNR">College of Agriculture, Food and Natural Resources</option>
-                            <option value="Arts">College of Arts and Science</option>
-                            <option value="Education">College of Education and Human Development</option>
-                            <option value="Eng">College of Engineering</option>
-                            <option value="Vet">College of Veterinary Medicine</option>
-                            <option value="JSchool">Missouri School of Journalism</option>
-                            <option value="Health">School of Health Professions</option>
-                            <option value="Nursing">Sinclair School of Nursing</option>
-                            <option value="Business">Trulaske College of Business</option>
-                            </select>
-                        </td> -->
+                        
                       </tr>
                       <tr>
-                         <!--<th width="30%">Please Select You Academic Year</th>
-                        <td width="2%">:</td>
-                        <td><select id="Year">
-                            <option value="fresh">Freshman</option>
-                            <option value="soph">Sophomore</option>
-                            <option value="junior">Junior</option>
-                            <option value="senior">Senior</option>
-                            </select></td> -->
+                         
                       </tr>
                       <tr>
                         <!-- need to list majors out to select, including undeclared -->
-                        <th width="30%">Please Specify Your Selected Major</th>
-                        <td width="2%">:</td>
+                        <th width="40%">Please Specify Your Selected Major</th>
+                        <td width="6%">:</td>
                         <td> If you don't yet have a major, please select "Undeclared" <select id="engMajors" multiple>
                             <option value="M1">Biological Engineering</option>
                             <option value="M2">Biomedical Engineering</option>
@@ -167,7 +147,7 @@
                         </select></td>
                       </tr>
                       <tr>
-                        <th width="30%">Please upload a ypur transcript document (this can be retrieved off your MyZou Student Account)</th>
+                        <th width="30%">Please upload a your transcript document (this can be retrieved off your MyZou Student Account)</th>
                         <td width="2%">:</td>
                         <td><form action="createProfile.php" method="POST" enctype="multipart/form-data">
                             Upload Transcript:
@@ -176,53 +156,16 @@
                             </form></td>
                       </tr>
                       <tr>
-                       <!-- <th width="30%">Please select any general hobbies/areas of interest </th>
-                        <td width="2%">:</td>
-                        <td><select id="interests" multiple>
-                            <option value="business">Business and Commerce</option>
-                            <option value="Comm">Communication, Journalism, Writing, and Media</option>
-                            <option value="STEM">Computing, Engineering, Math, and Applied Science</option>
-                            <option value="art">Creative, Design, and Performing Arts</option>
-                            <option value="culture">Culture and Society</option>
-                            <option value="education">Education and Helping Professions</option>
-                            <option value="medical">Health, Wellness, and Medical</option>
-                            <option value="nature">Natural, Evironmental, and Life Sciences</option>
-                            <option value="psych">Social and Behavioral</option>
-                        </select>
-                          </td> -->
+                       
                       </tr>
                     </table>
+                    <!--<button style= "font-family: 'Graphik', sans-serif ;" class ="submit-button" type="button" onclick= "writeData()" >Submit</button> -->
                   </div>
                 </div>
-                  <div style="height: 26px"></div>
-                <div class="card shadow-sm">
-                  <div class="card-header bg-transparent border-0">
-                    <h3 class="mb-0"><i class="far fa-clone pr-1"></i>Why are you entering this information?</h3>
-                  </div>
-                  <div class="card-body pt-0">
-                      <p>We will use the classes that you have taken during your time at Mizzou to determine the minors you are closest to completing</p>
-                  </div>
-                </div>
+
               </div>
             </div>
           </div>
-        </div>
-        <!-- partial -->
-
-                    </div>
-                </div>
-                 <button style= "font-family: 'Graphik', sans-serif ;" class ="submit-button" type="button" onclic k= "writeData()" >Submit</button>
-            </div>
-            
-            
-            <div class="footer">
-              <p id="logoText"><img src="/Users/sophiawilson/Downloads/University_of_Missouri_logo.png" alt="Missouri Logo">University of Missouri<br></p>
-              <h1 id="foot">Contact Us</h1>
-              <h4>Minors at Mizzou</h4>
-                <h5><a class="link" href="https://majors.missouri.edu">Find your Major</a></h5>
-                  <p>University Registrar, 125 Jesse Hall, Columbia, MO 65211 <br> Phone: 573-882-7881 | E-mail: <a class="link" href="mailto:umcunivregistrarwr@missouri.edu">umcunivregistrarwr@missouri.edu</a><br>Published 2022.</p>
-            </div>
-            
         </section>
 
 	</body>
