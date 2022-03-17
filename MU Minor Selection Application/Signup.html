@@ -141,20 +141,27 @@ img {
         
             
             <div class="mainContainer">
-                <form action="/action_page.php" style="border:1px solid #ccc">
+                <form action="/CreateProfile.html" style="border:1px solid #ccc">
                   <div class="container">
                     <h1>Sign Up</h1>
                     <p>Please fill in this form to create an account.</p>
                     <hr>
 
                     <label for="email"><b>Email</b></label>
-                    <input type="text" placeholder="Enter Email" name="email" required>
+                    <input type="text" id='email 'placeholder="Enter Email" name="email" required>
 
                     <label for="psw"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="psw" required>
+                    <input type="password" id='password' placeholder="Enter Password" name="psw" required>
 
                     <label for="psw-repeat"><b>Repeat Password</b></label>
                     <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+                      
+                    <label for="first-name"><b>First Name</b></label>
+                    <input type="text" id='fname' placeholder="First Name" name='fname' required>
+                      
+                    <label for="last-name"><b>Last Name</b></label>
+                    <input type="text" id="lname" placeholder="Last Name"
+                    name="lname" required>
 
                     <label>
                       <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
@@ -164,7 +171,7 @@ img {
 
                     <div class="clearfix">
                       <a href="Login.html"><button type="button" class="cancelbtn"  href="">Cancel</button></a>
-                      <button type="submit" class="signupbtn">Let's do it!</button>
+                      <button type="submit" id='signUp' name='signUp' class="signupbtn">Let's do it!</button>
                     </div>
                   </div>
                 </form>
@@ -177,4 +184,66 @@ img {
                   <p>University Registrar, 125 Jesse Hall, Columbia, MO 65211 <br> Phone: 573-882-7881 | E-mail: <a class="link" href="mailto:umcunivregistrarwr@missouri.edu">umcunivregistrarwr@missouri.edu</a><br>Published 2022.</p>
             </div>
         </body>
+    
+    
+    
+    
+    
+        <script type='module'>
+             import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js";
+              import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-database.js";
+              import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
+              // TODO: Add SDKs for Firebase products that you want to use
+              // https://firebase.google.com/docs/web/setup#available-libraries
+
+              // Your web app's Firebase configuration
+              const firebaseConfig = {
+                apiKey: "AIzaSyBJj8-roAqatS4RAvhhivO3-g6C9Kom_-k",
+                authDomain: "muminormatch.firebaseapp.com",
+                databaseURL: "https://muminormatch-default-rtdb.firebaseio.com",
+                projectId: "muminormatch",
+                storageBucket: "muminormatch.appspot.com",
+                messagingSenderId: "24369000206",
+                appId: "1:24369000206:web:e213ef859e9f8c8444315f"
+              };
+
+              // Initialize Firebase
+              const app = initializeApp(firebaseConfig);
+              const database = getDatabase(app);
+              const auth = getAuth();
+            
+            signUp.addEventListener('click', (e) => {
+                
+                var email = document.getElementById('email').value;
+                var password = document.getElementById('password').value;
+                var fname = document.getElementById('fname').value;
+                var lname = document.getElementById('lname').value;
+                
+                
+                createUserWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    
+                    
+                    const user = userCredential.user;
+                    
+                    set(ref(database, 'users/' + user.uid){
+                        email: email,
+                        fname: fname,
+                        lname: lname
+                    })
+                    
+                    alert('User Created!')
+                    
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    
+                    
+                    alert(errorMessage);
+                    
+                });
+            })
+    
+        </script>
 </html>
