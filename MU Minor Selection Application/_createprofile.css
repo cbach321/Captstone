@@ -27,10 +27,27 @@ p {
 }
 
 
-
-.container {
-
+.container{
+    display: flex;
 }
+
+
+.col-lg-4 {
+flex: 1;
+    border:2px;
+}
+
+.col-lg-4:first-child{
+    margin-right: 20px;
+}
+/*
+.col-lg-8 {
+    width: 50%;
+    float: left;
+    padding: 20px;
+    border: 2px;
+}
+*/
 
 
 .col-lg-4 {
