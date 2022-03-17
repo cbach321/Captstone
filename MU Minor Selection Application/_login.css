@@ -1,4 +1,4 @@
-@import "bourbon";
+
 body {
     background: #F1B82D;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #4ca2cd, #67B26F);  /* Chrome 10-25, Safari 5.1-6 */
