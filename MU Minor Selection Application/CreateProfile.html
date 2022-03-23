@@ -32,7 +32,9 @@
         </script>
         
         <script>
+            // Get a database reference to our posts
             
+          /*  
             function writeData(){
                 firebase.database().ref("User").set({
                     name: doucment.getElementById("name").value
@@ -49,7 +51,8 @@
                 document.getElementById("data").innerHTML = childData['name'];
                 }
             }
-        }
+        }*/
+            
 
 // Initialize Firebase
 //const app = initializeApp(firebaseConfig);
@@ -93,10 +96,10 @@
                     
                 <h3><label for="name">How to Obtain your Transcripts</label></h3>
                   </div>
-                  <div class="card-body">
+                  <div class="card-body" style = "padding: 15px;">
                     <p class="mb-0">Steps to get your Transcripts from Myzou</p>
                     <p> </p>
-                    <p class="mb-10">Step 1: Visit https://mizzouone.missouri.edu/task/all/student-information-center</p>
+                      <p class="mb-10">Step 1: Visit <a href= https://mizzouone.missouri.edu/task/all/student-information-center> MizzouOne </a></p>
                       <br>
                       <p class="mb-10">Step 2: Sign in </p>
                       <br>
@@ -128,7 +131,7 @@
                       </tr>
                       <tr>
                         <!-- need to list majors out to select, including undeclared -->
-                        <th width="40%">Please Specify Your Selected Major</th>
+                       <!-- <th width="40%">Please Specify Your Selected Major</th>
                         <td width="6%">:</td>
                         <td> If you don't yet have a major, please select "Undeclared" <select id="engMajors" multiple>
                             <option value="M1">Biological Engineering</option>
@@ -144,7 +147,7 @@
                             <option value="M12">Information Technology</option>
                             <option value="M13">Mechanical Engineering</option>
                             <option value="M14">Undeclared</option>
-                        </select></td>
+                        </select></td> -->
                       </tr>
                       <tr>
                         <th width="30%">Please upload a your transcript document (this can be retrieved off your MyZou Student Account)</th>
@@ -159,7 +162,7 @@
                        
                       </tr>
                     </table>
-                    <!--<button style= "font-family: 'Graphik', sans-serif ;" class ="submit-button" type="button" onclick= "writeData()" >Submit</button> -->
+                    <!--<button style= "font-family: 'Graphik', sans-serif ;" class ="submit-button" type="button" onclick= "writeData()" >Submit</button>  test -->
                   </div>
                 </div>
 

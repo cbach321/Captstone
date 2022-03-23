@@ -12,7 +12,7 @@ if(isset($_POST['submit'])) {
     $fileExt = explode('.', $fileName);
     $fileActual = strtolower(end($fileExt));
     
-    $allow = array( 'pdf', 'docx', 'doc', 'jpg' ); 
+    $allow = array( 'pdf', 'docx', 'doc' ); 
     
     if (in_array($fileActual, $allow )) {
         if($fileError === 0){
