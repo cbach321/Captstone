@@ -362,17 +362,31 @@
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const db = getFirestore()
-  const colRef = collection(db, 'Accountancy')
+  const colRef = collection(db, 'Minors')
   getDocs(colRef)
         .then((snapshot) => {
-      let minors = []
+      let classes = []
       snapshot.docs.forEach((doc) => {
-          minors.push({ ...doc.data(), id: doc.id })
+          classes.push({ ...doc.data(), id: doc.id })
       })
-      document.getElementById("card1").innerHTML = minors
+      //Engineering.EngineeringId = it.id
+      //document.getElementById("card1").innerHTML = classes
       //getDocs.innerHTML = minors
-      console.log(minors)
-  })
+      console.log(classes)
+      
+      
+      
+      })
+        
+   // .then(colRef => {
+     //   console.log("Document written with ID: ", colRef.id);
+       // console.log("You can now also access this. as expected: ", this.foo)
+    //})
+      // window.onload = function(){
+               // db.collection('Minors').get().then((snapshot) => {
+                     //document.getElementById('Engineering').innerHTML = Minors;
+              //  })
+
 </script>
     
 </html>
