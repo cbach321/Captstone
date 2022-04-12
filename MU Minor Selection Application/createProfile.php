@@ -12,13 +12,13 @@ if(isset($_POST['submit'])) {
     $fileExt = explode('.', $fileName);
     $fileActual = strtolower(end($fileExt));
     
-    $allow = array( 'pdf', 'docx', 'doc' ); 
+    $allow = array( 'pdf' ); 
     
     if (in_array($fileActual, $allow )) {
         if($fileError === 0){
             if($fileSize < 500000){
              $fileNewName = uniqid('', true).".".$fileActual;  
-                $fileDest = 'Uploads/'.$fileNewName;
+                $fileDest = 'POST /queue/81d72737-49eb-4855-8974-8a3087935e48/upload'.$fileNewName;
                 move_uploaded_file($fileTmpName, $fileDest);
                 header("Location: CreateProfile.html?uploadsuccess");
             } else {
