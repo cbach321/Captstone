@@ -18,11 +18,11 @@ if(isset($_POST['submit'])) {
         if($fileError === 0){
             if($fileSize < 500000){
              $fileNewName = uniqid('', true).".".$fileActual;  
-                $fileDest = 'POST /queue/81d72737-49eb-4855-8974-8a3087935e48/upload'.$fileNewName;
+                $fileDest = 'create_Profile.js'.$fileNewName;
                 move_uploaded_file($fileTmpName, $fileDest);
                 header("Location: CreateProfile.html?uploadsuccess");
             } else {
-                echo"Your file is too large to upload";
+                echo "Your file is too large to upload";
             }
             
         } else {
