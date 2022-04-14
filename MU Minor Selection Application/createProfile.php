@@ -18,7 +18,7 @@ if(isset($_POST['submit'])) {
         if($fileError === 0){
             if($fileSize < 500000){
              $fileNewName = uniqid('', true).".".$fileActual;  
-                $fileDest = 'create_Profile.js'.$fileNewName;
+                $fileDest = 'Uploads/'.$fileNewName;
                 move_uploaded_file($fileTmpName, $fileDest);
                 header("Location: CreateProfile.html?uploadsuccess");
             } else {
