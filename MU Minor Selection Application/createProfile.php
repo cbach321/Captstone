@@ -19,6 +19,9 @@ if(isset($_POST['submit'])) {
             if($fileSize < 500000){
              $fileNewName = uniqid('', true).".".$fileActual;  
                 $fileDest = 'Uploads/'.$fileNewName;
+                //1. upload files API call
+                //2. Poll on the GET results endpoint (inside a while loop)
+                //3. once results are retrieved, upload them to firebase 
                 move_uploaded_file($fileTmpName, $fileDest);
                 header("Location: CreateProfile.html?uploadsuccess");
             } else {
