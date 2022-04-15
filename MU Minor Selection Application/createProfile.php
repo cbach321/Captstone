@@ -18,10 +18,41 @@ if(isset($_POST['submit'])) {
         if($fileError === 0){
             if($fileSize < 500000){
              $fileNewName = uniqid('', true).".".$fileActual;  
-                $fileDest = 'Uploads/'.$fileNewName;
+                $fileDest = 'https://app.butlerlabs.ai/api/queues/81d72737-49eb-4855-8974-8a3087935e48/uploads'.$fileNewName;
+                
                 //1. upload files API call
+                $api_base_url = 'https://app.butlerlabs.ai/api';
+                $api_key = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhdXRoMHw2MjMzODU1OGJjNGI2ZTAwNzA4MGE4NzUiLCJlbWFpbCI6InNtd2lsc29uQG1haWwubWlzc291cmkuZWR1IiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImlhdCI6MTY0NzU0MzczOTYyOH0.4l3d5GUS32OJSESncLBP1pzNM1rzxuL7reLXjehPS48';
+                $queue_id = '81d72737-49eb-4855-8974-8a3087935e48';
+                $file_location = "Uploads/";
                 //2. Poll on the GET results endpoint (inside a while loop)
+                $post_fields = $post_fields = [ 'files' => [ $curl_file ] ];
+
+                $url = $api_base_url . '/queues/' . $queue_id . '/uploads';
+                $ch = curl_init();
+                curl_setopt_array($ch, array(
+                  CURLOPT_URL => $url,
+                  CURLOPT_RETURNTRANSFER => TRUE,
+                  CURLOPT_ENCODING => '',
+                  CURLOPT_MAXREDIRS => 10,
+                  CURLOPT_TIMEOUT => 0,
+                  CURLOPT_FOLLOWLOCATION => TRUE,
+                  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                  CURLOPT_CUSTOMREQUEST => 'POST',
+                  CURLOPT_POSTFIELDS => $post_fields,
+                  CURLOPT_HTTPHEADER => array(
+                    'Authorization: ' . 'Bearer ' . $api_key,
+                    'Accept: */*',
+                    'Content-Type: multipart/form-data',
+                  ),
+                ));
+                $result = curl_exec($ch);
+                curl_close($ch); 
+
                 //3. once results are retrieved, upload them to firebase 
+                // Step 1 - Upload Files to Butler
+
+                
                 move_uploaded_file($fileTmpName, $fileDest);
                 header("Location: CreateProfile.html?uploadsuccess");
             } else {
