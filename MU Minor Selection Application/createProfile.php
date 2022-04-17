@@ -18,7 +18,7 @@ if(isset($_POST['submit'])) {
         if($fileError === 0){
             if($fileSize < 500000){
              $fileNewName = uniqid('', true).".".$fileActual;  
-                $fileDest = 'https://app.butlerlabs.ai/api/queues/81d72737-49eb-4855-8974-8a3087935e48/uploads'.$fileNewName;
+                $fileDest = 'Uploads/'.$fileNewName;
                 
                 //1. upload files API call
                 $api_base_url = 'https://app.butlerlabs.ai/api';
@@ -51,6 +51,29 @@ if(isset($_POST['submit'])) {
 
                 //3. once results are retrieved, upload them to firebase 
                 // Step 1 - Upload Files to Butler
+                
+                $upload_id = $result['uploadId'];
+$result_api_url = $url = $api_base_url . '/queues/' . $queue_id . '/uploads?uploadId=' . $upload_id;
+
+// Poll on results until finished
+$extraction_results = NULL;
+
+while ($extraction_results == NULL) {
+  $curl = curl_init($url);
+  curl_setopt($curl, CURLOPT_URL, $url);
+  curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+  $resp = curl_exec($curl);
+
+  $file_results = $resp['items'][0];
+  if ($file_results['documentStatus'] == 'Completed') { 
+    // If results are finished, set extraction results and exit while loop 
+    $extraction_results = $file_results;
+  } else {
+    // If results aren't finished, sleep for 5 sections
+    sleep(5);
+  }
+  curl_close($curl);
+}
 
                 
                 move_uploaded_file($fileTmpName, $fileDest);
