@@ -17,14 +17,14 @@ if(isset($_POST['submit'])) {
     if (in_array($fileActual, $allow )) {
         if($fileError === 0){
             if($fileSize < 500000){
-             $fileNewName = uniqid('', true).".".$fileActual;  
-                $fileDest = 'Uploads/'.$fileNewName;
+            $fileNewName = uniqid('', true).".".$fileActual;  
+            $fileDest = 'Uploads/'.$fileNewName;
                 
                 //1. upload files API call
                 $api_base_url = 'https://app.butlerlabs.ai/api';
                 $api_key = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhdXRoMHw2MjMzODU1OGJjNGI2ZTAwNzA4MGE4NzUiLCJlbWFpbCI6InNtd2lsc29uQG1haWwubWlzc291cmkuZWR1IiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImlhdCI6MTY0NzU0MzczOTYyOH0.4l3d5GUS32OJSESncLBP1pzNM1rzxuL7reLXjehPS48';
                 $queue_id = '81d72737-49eb-4855-8974-8a3087935e48';
-                $file_location = "Uploads/";
+                $file_location = $file; //this needs to be the path to the actual file that was uploaded 
                 //2. Poll on the GET results endpoint (inside a while loop)
                 $post_fields = $post_fields = [ 'files' => [ $curl_file ] ];
 
@@ -42,10 +42,10 @@ if(isset($_POST['submit'])) {
                   CURLOPT_POSTFIELDS => $post_fields,
                   CURLOPT_HTTPHEADER => array(
                     'Authorization: ' . 'Bearer ' . $api_key,
-                    'Accept: */*',
+                    'Accept: */*',  //dont forget you added an extra line here 
                     'Content-Type: multipart/form-data',
                   ),
-                ));
+                )); 
                 $result = curl_exec($ch);
                 curl_close($ch); 
 
@@ -53,10 +53,10 @@ if(isset($_POST['submit'])) {
                 // Step 1 - Upload Files to Butler
                 
                 $upload_id = $result['uploadId'];
-$result_api_url = $url = $api_base_url . '/queues/' . $queue_id . '/uploads?uploadId=' . $upload_id;
+                $result_api_url = $url = $api_base_url . '/queues/' . $queue_id . '/uploads?uploadId=' . $upload_id;
 
 // Poll on results until finished
-$extraction_results = NULL;
+/*$extraction_results = NULL;
 
 while ($extraction_results == NULL) {
   $curl = curl_init($url);
@@ -73,7 +73,7 @@ while ($extraction_results == NULL) {
     sleep(5);
   }
   curl_close($curl);
-}
+} */
 
                 
                 move_uploaded_file($fileTmpName, $fileDest);
