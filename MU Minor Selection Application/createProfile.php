@@ -25,8 +25,19 @@ if(isset($_POST['submit'])) {
                 $api_base_url = 'https://app.butlerlabs.ai/api';
                 $api_key = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhdXRoMHw2MjMzODU1OGJjNGI2ZTAwNzA4MGE4NzUiLCJlbWFpbCI6InNtd2lsc29uQG1haWwubWlzc291cmkuZWR1IiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImlhdCI6MTY0NzU0MzczOTYyOH0.4l3d5GUS32OJSESncLBP1pzNM1rzxuL7reLXjehPS48';
                 $queue_id = '81d72737-49eb-4855-8974-8a3087935e48';
-                $file_location = fopen($_FILES["file"]["tmp_name"], 'r'); //this needs to be the path to the actual file that was uploaded, but unsure of how to get the exact path. 
+                $file_location = $fileDest; //this needs to be the path to the actual file that was uploaded, but unsure of how to get the exact path. 
                 //2. Poll on the GET results endpoint (inside a while loop)
+                $mimes = array( 
+                  IMAGETYPE_JPEG => "image/jpg", 
+                  IMAGETYPE_PNG => "image/png", 
+                  PDF => "application/pdf" 
+                ); 
+                $image_type = exif_imagetype($image_path); 
+                $mime_type = $mimes[$image_type]; 
+                $info = pathinfo($file); 
+                $name = $info['basename']; 
+                $curl_file = new CURLFile($file, $mime_type, $name);
+                
                 $post_fields = $post_fields = [ 'files' => [ $curl_file ] ];
 
                 $url = $api_base_url . '/queues/' . $queue_id . '/uploads';
@@ -43,7 +54,7 @@ if(isset($_POST['submit'])) {
                   CURLOPT_POSTFIELDS => $post_fields,
                   CURLOPT_HTTPHEADER => array(
                     'Authorization: ' . 'Bearer ' . $api_key,
-                    'Accept: */*',  //dont forget you added an extra line here 
+                    'Accept: */*',  //dont forget you added an extra line here, remove later 
                     'Content-Type: multipart/form-data',
                   ),
                 )); 
@@ -76,6 +87,7 @@ while ($extraction_results == NULL) {
   curl_close($curl);
 } */
 
+
                 
                 move_uploaded_file($fileTmpName, $fileDest);
                 header("Location: CreateProfile.html?uploadsuccess");
@@ -90,7 +102,6 @@ while ($extraction_results == NULL) {
         echo "You cannot upload this file type. Please try again";
     }
 }
-
 
 
 ?>
