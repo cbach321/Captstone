@@ -71,25 +71,27 @@ if(isset($_POST['submit'])) {
                 $result_api_url = $url = $api_base_url . '/queues/' . $queue_id . '/uploads?uploadId=' . $upload_id;
 
 // Poll on results until finished
-/*$extraction_results = NULL;
-
-while ($extraction_results == NULL) {
-  $curl = curl_init($url);
-  curl_setopt($curl, CURLOPT_URL, $url);
-  curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-  $resp = curl_exec($curl);
-
-  $file_results = $resp['items'][0];
-  if ($file_results['documentStatus'] == 'Completed') { 
-    // If results are finished, set extraction results and exit while loop 
-    $extraction_results = $file_results;
-  } else {
-    // If results aren't finished, sleep for 5 sections
-    sleep(5);
-  }
-  curl_close($curl);
-} */
-
+        $extraction_results = NULL;
+                
+        while ($extraction_results == NULL) {
+          $curl = curl_init($url);
+          curl_setopt($curl, CURLOPT_URL, $url);
+          curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+          $resp = curl_exec($curl);
+error_log($extraction_results); //added
+          $file_results = $resp['items'][0];
+          if ($file_results['documentStatus'] == 'Completed') { 
+            // If results are finished, set extraction results and exit while loop 
+            $extraction_results = $file_results;
+            echo($extraction_results); //added
+          } else {
+            // If results aren't finished, sleep for 5 sections
+            echo("There was an error");//added
+            sleep(5);
+          }
+          curl_close($curl);
+        } 
+            
 
                 
                 
