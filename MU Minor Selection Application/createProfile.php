@@ -71,28 +71,67 @@ if(isset($_POST['submit'])) {
                 $result_api_url = $url = $api_base_url . '/queues/' . $queue_id . '/uploads?uploadId=' . $upload_id;
 
 // Poll on results until finished
-        $extraction_results = NULL;
-                
-        while ($extraction_results == NULL) {
-          $curl = curl_init($url);
-          curl_setopt($curl, CURLOPT_URL, $url);
-          curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-          $resp = curl_exec($curl);
-error_log($extraction_results); //added
-          $file_results = $resp['items'][0];
-          if ($file_results['documentStatus'] == 'Completed') { 
-            // If results are finished, set extraction results and exit while loop 
-            $extraction_results = $file_results;
-            echo($extraction_results); //added
-          } else {
-            // If results aren't finished, sleep for 5 sections
-            echo("There was an error");//added
-            sleep(5);
-          }
-          curl_close($curl);
-        } 
-            
+       $result_api_url = $api_base_url . '/queues/' . $queue_id . '/extraction_results?uploadId=' . $upload_id;
 
+
+            $extraction_results = NULL;
+            while ($extraction_results == NULL) {
+
+            $result_curl = curl_init();
+
+            curl_setopt_array($result_curl, array(
+
+            CURLOPT_URL => $result_api_url,
+
+            CURLOPT_RETURNTRANSFER => true,
+
+            CURLOPT_ENCODING => '',
+
+            CURLOPT_MAXREDIRS => 10,
+
+            CURLOPT_TIMEOUT => 0,
+
+            CURLOPT_FOLLOWLOCATION => true,
+
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+
+            CURLOPT_CUSTOMREQUEST => 'GET',
+
+            CURLOPT_HTTPHEADER => array( '
+
+            Authorization: ' . 'Bearer ' . $api_key,
+
+            ),
+
+            ));
+
+            $response = curl_exec($result_curl);
+
+            echo($response);
+
+            // Get the extraction results from the API response
+
+            $results = $response['items'][0];
+
+            // If the extraction results API is finished, set the $extraction_results
+
+            if ($results['documentStatus'] == 'Completed') {
+
+            $extraction_results = $results;
+
+            } else {
+
+            // If they are still in progress, sleep for 5 seconds, then call again
+
+            sleep(5);
+
+            }
+
+            curl_close($result_curl);
+
+            }
+
+            echo($extraction_results);
                 
                 
             } else {
