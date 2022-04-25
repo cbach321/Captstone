@@ -71,7 +71,7 @@ if(isset($_POST['submit'])) {
                 $result_api_url = $url = $api_base_url . '/queues/' . $queue_id . '/uploads?uploadId=' . $upload_id;
 
 // Poll on results until finished
-       $result_api_url = $api_base_url . '/queues/' . $queue_id . '/extraction_results?uploadId=' . $upload_id;
+   /*    $result_api_url = $api_base_url . '/queues/' . $queue_id . '/extraction_results?uploadId=' . $upload_id;
 
 
             $extraction_results = NULL;
@@ -131,7 +131,7 @@ if(isset($_POST['submit'])) {
 
             }
 
-            echo($extraction_results);
+            echo($extraction_results); */
                 
                 
             } else {
