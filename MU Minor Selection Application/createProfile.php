@@ -68,71 +68,58 @@ if(isset($_POST['submit'])) {
                 
                 $upload_id = $result['uploadId'];
                 error_log($result);
-                $result_api_url = $url = $api_base_url . '/queues/' . $queue_id . '/uploads?uploadId=' . $upload_id;
+                //$result_api_url = $url = $api_base_url . '/queues/' . $queue_id . '/uploads?uploadId=' . $upload_id;
 
 // Poll on results until finished
-   /*    $result_api_url = $api_base_url . '/queues/' . $queue_id . '/extraction_results?uploadId=' . $upload_id;
+     $result_api_url = $api_base_url . '/queues/' . $queue_id . '/extraction_results?uploadId=' . $upload_id;
 
 
-            $extraction_results = NULL;
-            while ($extraction_results == NULL) {
+         $extraction_results = NULL;
+                
+        while ($extraction_results == NULL) {
 
             $result_curl = curl_init();
-
             curl_setopt_array($result_curl, array(
-
             CURLOPT_URL => $result_api_url,
-
             CURLOPT_RETURNTRANSFER => true,
-
             CURLOPT_ENCODING => '',
-
             CURLOPT_MAXREDIRS => 10,
-
             CURLOPT_TIMEOUT => 0,
-
             CURLOPT_FOLLOWLOCATION => true,
-
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-
             CURLOPT_CUSTOMREQUEST => 'GET',
-
             CURLOPT_HTTPHEADER => array( '
-
             Authorization: ' . 'Bearer ' . $api_key,
-
             ),
 
-            ));
+        ));
 
-            $response = curl_exec($result_curl);
+        $response = curl_exec($result_curl);
+        echo($response);
 
-            echo($response);
+        // Get the extraction results from the API response
 
-            // Get the extraction results from the API response
+        $results = $response['items'][0];
 
-            $results = $response['items'][0];
+        // If the extraction results API is finished, set the $extraction_results
 
-            // If the extraction results API is finished, set the $extraction_results
+        if ($results['documentStatus'] == 'Completed' or 'Waiting For Review') {
+        $extraction_results = $results;
 
-            if ($results['documentStatus'] == 'Completed') {
+        } else {
 
-            $extraction_results = $results;
+        // If they are still in progress, sleep for 5 seconds, then call again
 
-            } else {
+        sleep(5);
 
-            // If they are still in progress, sleep for 5 seconds, then call again
+        }
 
-            sleep(5);
+        curl_close($result_curl);
 
-            }
+        }
 
-            curl_close($result_curl);
-
-            }
-
-            echo($extraction_results); */
-                
+        echo($extraction_results); //this is the end of extracting 
+        error_log($extraction_results);      
                 
             } else {
                 echo "Your file is too large to upload";
