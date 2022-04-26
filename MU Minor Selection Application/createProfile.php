@@ -96,6 +96,7 @@ if(isset($_POST['submit'])) {
 
         $response = curl_exec($result_curl);
         echo($response);
+        error_log($response);
 
         // Get the extraction results from the API response
 
