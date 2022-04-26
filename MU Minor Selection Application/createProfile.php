@@ -22,7 +22,7 @@ if(isset($_POST['submit'])) {
             $fileDest = 'Uploads/'.$fileNewName;
                 
                 move_uploaded_file($fileTmpName, $fileDest);
-                header("Location: CreateProfile.html?uploadsuccess");
+                header("Location: CreateProfile.html?uploadsuccess"); //pls add this back in after testing 
                 //echo($fileDest);
                 
                 //1. upload files API call
@@ -103,7 +103,7 @@ if(isset($_POST['submit'])) {
 
         // If the extraction results API is finished, set the $extraction_results
 
-        if ($results['documentStatus'] == 'Completed' or 'Waiting For Review') {
+        if ($results['documentStatus'] == 'Completed') {
         $extraction_results = $results;
 
         } else {
