@@ -123,6 +123,7 @@ if(isset($_POST['submit'])) {
                 //var_dump($table); //how to access the results of the entire table 
                 
                 $row_1 = $table['rows'][0]; //access one particular row of the data *remember its listed in rows & columns 
+                
                 $row_1_class_subject = $row_1['cells'][0]['value'] //this will access the class subject value from a row 
 ;
                 $row_1_class_id = $row_1['cells'][1]['value'] //this will access the class ID value from 1 singular row 
