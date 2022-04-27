@@ -22,7 +22,7 @@ if(isset($_POST['submit'])) {
             $fileDest = 'Uploads/'.$fileNewName;
                 
                 move_uploaded_file($fileTmpName, $fileDest);
-                header("Location: CreateProfile.html?uploadsuccess"); //pls add this back in after testing 
+               // header("Location: CreateProfile.html?uploadsuccess"); //pls add this back in after testing 
                 //echo($fileDest);
                 
                 //1. upload files API call
@@ -74,53 +74,47 @@ if(isset($_POST['submit'])) {
      $result_api_url = $api_base_url . '/queues/' . $queue_id . '/extraction_results?uploadId=' . $upload_id;
 
 
-         $extraction_results = NULL;
-                
-        while ($extraction_results == NULL) {
+                     $extraction_results = NULL;
 
-            $result_curl = curl_init();
-            curl_setopt_array($result_curl, array(
-            CURLOPT_URL => $result_api_url,
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => '',
-            CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 0,
-            CURLOPT_FOLLOWLOCATION => true,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => 'GET',
-            CURLOPT_HTTPHEADER => array( '
-            Authorization: ' . 'Bearer ' . $api_key,
-            ),
+                while ($extraction_results == NULL) {
+                $result_curl = curl_init();
+                    
+                curl_setopt_array($result_curl, array(
+                CURLOPT_URL => $result_api_url,
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_ENCODING => '',
+                CURLOPT_MAXREDIRS => 10,
+                CURLOPT_TIMEOUT => 0,
+                CURLOPT_FOLLOWLOCATION => true,
+                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                CURLOPT_CUSTOMREQUEST => 'GET',
+                CURLOPT_HEADER => false,
+                CURLOPT_HTTPHEADER => array( 'Authorization: ' . 'Bearer ' . $api_key, ),
+                CURLOPT_USERAGENT => 'curl/7.54'
+                ));
 
-        ));
+                $response = json_decode(curl_exec($result_curl), true);
 
-        $response = curl_exec($result_curl);
-        echo($response);
-        error_log($response);
+                var_dump($response);
+                error_log($response);
+                  // Get the extraction results from the API response
 
-        // Get the extraction results from the API response
+                $results = $response['items'][0];
 
-        $results = $response['items'][0];
+                // If the extraction results API is finished, set the $extraction_results
 
-        // If the extraction results API is finished, set the $extraction_results
+                if ($results['documentStatus'] == 'Completed') {
+                $extraction_results = $results;
+                } else {
 
-        if ($results['documentStatus'] == 'Completed') {
-        $extraction_results = $results;
+            // If they are still in progress, sleep for 5 seconds, then call again
+            echo('Sleeping for 5 seconds. Status: ' . $results['documentStatus']); sleep(5);
+                }
 
-        } else {
+            }
 
-        // If they are still in progress, sleep for 5 seconds, then call again
-
-        sleep(5);
-
-        }
-
-        curl_close($result_curl);
-
-        }
-
-        echo($extraction_results); //this is the end of extracting 
-        error_log($extraction_results);      
+            echo('Results: ' . $extraction_results);
+            error_log($extraction_results);      
                 
             } else {
                 echo "Your file is too large to upload";
