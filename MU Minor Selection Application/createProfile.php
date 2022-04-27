@@ -12,7 +12,7 @@ if(isset($_POST['submit'])) {
     
     $fileExt = explode('.', $fileName);
     $fileActual = strtolower(end($fileExt));
-    error_log("hello");
+ 
     $allow = array( 'pdf' ); 
     
     if (in_array($fileActual, $allow )) {
@@ -60,14 +60,19 @@ if(isset($_POST['submit'])) {
                       
                   ),
                 )); 
-                $result = curl_exec($ch);
+               // $result = curl_exec($ch);
+                $result = json_decode(curl_exec($ch));
+                //var_dump($result);
+
                 curl_close($ch); 
 
                 //3. once results are retrieved, upload them to firebase 
                 // Step 1 - Upload Files to Butler
                 
-                $upload_id = $result['uploadId'];
-                error_log($result);
+                //$upload_id = $result['uploadId'];
+                 $upload_id = $result->uploadId;
+
+                //error_log($result);
                 //$result_api_url = $url = $api_base_url . '/queues/' . $queue_id . '/uploads?uploadId=' . $upload_id;
 
 // Poll on results until finished
@@ -95,8 +100,8 @@ if(isset($_POST['submit'])) {
 
                 $response = json_decode(curl_exec($result_curl), true);
 
-                var_dump($response);
-                error_log($response);
+               // var_dump($response); //this is dumping the object to the screen, which is what we're seeing
+               // error_log($response);
                   // Get the extraction results from the API response
 
                 $results = $response['items'][0];
@@ -104,17 +109,33 @@ if(isset($_POST['submit'])) {
                 // If the extraction results API is finished, set the $extraction_results
 
                 if ($results['documentStatus'] == 'Completed') {
-                $extraction_results = $results;
+                $extraction_results = $results; //later, we will access the values of these results here, and upload them into firebase 
                 } else {
 
             // If they are still in progress, sleep for 5 seconds, then call again
             echo('Sleeping for 5 seconds. Status: ' . $results['documentStatus']); sleep(5);
                 }
 
-            }
+            } //end of while loop
+                //basically, after this loop has compledted, this is when we will send the extraction results where we want them to go. we will place them in an array *see below, and then use a loop to loop through that array as many times as needed. I THINK we can do this before sending the results somewhere 
+                
+                $table = $extraction_results['tables'][0];
+                //var_dump($table); //how to access the results of the entire table 
+                
+                $row_1 = $table['rows'][0]; //access one particular row of the data *remember its listed in rows & columns 
+                $row_1_class_subject = $row_1['cells'][0]['value'] //this will access the class subject value from a row 
+;
+                $row_1_class_id = $row_1['cells'][1]['value'] //this will access the class ID value from 1 singular row 
+;
 
-            echo('Results: ' . $extraction_results);
-            error_log($extraction_results);      
+                //var_dump($row_1);
+                var_dump($row_1_class_subject); 
+                var_dump($row_1_class_id); //these are dumping the values to the screen 
+                
+               // var_dump($extraction_results);
+                //you want to access the "tables" part of the string 
+            //echo('Results: ' . $extraction_results);
+            //error_log($extraction_results);      
                 
             } else {
                 echo "Your file is too large to upload";
