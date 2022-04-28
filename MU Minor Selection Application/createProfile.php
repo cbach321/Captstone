@@ -137,7 +137,7 @@ if(isset($_POST['submit'])) {
                 //you want to access the "tables" part of the string 
             //echo('Results: ' . $extraction_results);
             //error_log($extraction_results);      
-                
+            
             } else {
                 echo "Your file is too large to upload";
             }
@@ -148,6 +148,8 @@ if(isset($_POST['submit'])) {
     } else {
         echo "You cannot upload this file type. Please try again";
     }
+    
+    
 }
 
 
