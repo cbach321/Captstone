@@ -128,11 +128,16 @@ if(isset($_POST['submit'])) {
 ;
                 $row_1_class_id = $row_1['cells'][1]['value'] //this will access the class ID value from 1 singular row 
 ;
+              //  $allRows = $table['rows'][]['value'];
 
                 //var_dump($row_1);
-                var_dump($row_1_class_subject); 
-                var_dump($row_1_class_id); //these are dumping the values to the screen 
                 
+                  
+               // var_dump($row_1_class_subject); 
+               // var_dump($row_1_class_id); //these are dumping the values to the screen 
+                
+                print_r(array_values($extraction_results));
+                     
                // var_dump($extraction_results);
                 //you want to access the "tables" part of the string 
             //echo('Results: ' . $extraction_results);
