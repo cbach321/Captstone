@@ -91,7 +91,7 @@ body {
 
 .footer {
     font-family: sans-serif, "Graphik";
-    background-color: #D7D7D7;
+    background-color: #F1B82D;
 }
 
 hr {
@@ -11301,4 +11301,8 @@ textarea.form-control-lg {
 
 html{
     scroll-behavior: smooth;
+}
+
+li {
+    color: black;
 }
