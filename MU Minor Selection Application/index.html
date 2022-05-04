@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Sign Up</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
         <style>
             body{
                 display: flex;
@@ -155,7 +156,7 @@
                             fullname: name.value,
                             email: email.value,
                             username: username.value,
-//                            password: encPass()
+                            password: encPass()
                         })
                         .then(() =>{
                             alert("User added successfully")
@@ -169,14 +170,12 @@
                 })
             }
             
+            function encPass(){
+               var pass12 = CrytoJS.AES.encrypt(pass.value, pass.value);
+               return pass12.toString();
+           }
             
             submit.addEventListener('click', registerUser);
-            
-//            
-//            function encPass(){
-//                var pass12 = CrytoJS.AES.encrypt(pass.value, pass.value);
-//                return pass12.toString();
-//            }
             
         </script>
     </body>
