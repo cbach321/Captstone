@@ -46,7 +46,7 @@
               color: black;
                 text-align: center;
             margin-bottom: 30px;
-               position: fixed; 
+               position: absolute; 
                 top: 0;
                 font-size: 75px;
         
@@ -73,7 +73,7 @@
          margin: 5px;
                 
         }
-            .img{
+            img{
                 margin: 5px;
                 height: auto;
                 width: 25%;
@@ -87,6 +87,15 @@
             h2{
                 text-decoration: underline;
             }
+            #foot {
+              background-color: black;
+              padding: 5px;
+            }
+            #logoText {
+  font-size: 20px;
+}
+       
+
         </style>
     </head>
     <body>
@@ -94,7 +103,7 @@
         <h1> Mizzou Minor Match</h1>
         
         <div class= "border signupSize center">
-            <h2 class= "center">Sign Up</h2>
+            <h2 class= "center">Sign Up To Find Your Minor!</h2>
             <input type="text" placeholder="Full Name" id="name"><br>
             <input type="text" placeholder="Email" id="email"><br>
             <input type="text" placeholder="Pawprint" id="user"><br>
@@ -211,8 +220,10 @@
             
         </script>
         <footer>
-        
-   <span><img src= "MU_UniversitySig_horiz_RGB.png" alt = " "  class = "img"></span>
+        <!--<div class="footer">
+              <p id="logoText"><img src="MU_UniversitySig_horiz_RGB.png" alt="Missouri Logo">University of Missouri<br></p>
+            </div> -->
+   <span><img src= "MU_UniversitySig_horiz_RGB.png" alt = " "  class = "img"></span> 
         </footer>
     </body>
 </html>
