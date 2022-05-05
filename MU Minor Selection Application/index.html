@@ -6,8 +6,11 @@
         <title>Sign Up</title>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
         <style>
+            
+            
             body{
-                display: flex;
+                display:flex;
+                position: relative;
                 justify-content: center;
                 align-items: center;
                 height: 100vh;
@@ -15,6 +18,8 @@
                 margin: 0px;
                 background-color: #F1B82D;
                 font-family: 'Graphik', sans-serif;
+                min-width: 33%;
+                max-width: 150;
             }
             
             input{
@@ -29,87 +34,75 @@
 
             }
             .signupSize{
-               display: block;
-              padding: 45px 35px 45px;
-              margin: auto;
-              background-color: white;
-             /* box-shadow: -5px -4px 8px #6c6565, 9px 9px 25px #0b0b0b; */
-              border-radius: 15px;
+                display: inline-block;
+                padding: 45px 35px 45px;
+                margin: auto;
+                background-color: white;
+                 /* box-shadow: -5px -4px 8px #6c6565, 9px 9px 25px #0b0b0b; */
+                border-radius: 15px;
                 width: 25%;
-
-                
+                min-width: 15%;
+                max-width: 150px;
+                position: relative;
             }
+            
+            
             h1{
-             text-align: center;
-              padding: 30px;
-              font-weight: bold;
-              color: black;
                 text-align: center;
-            margin-bottom: 30px;
-               position: absolute; 
+                padding: 30px;
+                font-weight: bold;
+                color: black;
+                text-align: center;
+                margin-bottom: 30px;
+                position: absolute; 
                 top: 0;
                 font-size: 75px;
-        
             }
+            
+            
             .center{
                 text-align: center; 
             }
             
             #sub_btn{
                 background-color: white;
-              color: black;
-              border-color: black;
+                color: black;
+                border-color: black;
                 margin: 5px;
                 font-family: 'Graphik', sans-serif;
             }
+            
+            
             footer {
-
-          text-align: center;
-          color: #F1B82D;
-         position: absolute;
-          bottom: 0;
-          width: 100%;
-          height: 100px; 
-         margin: 5px;
-                
-        }
+                text-align: center;
+                color: #F1B82D;
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                height: 100px; 
+                margin: 5px;
+            }
+            
             img{
                 margin: 5px;
                 height: auto;
                 width: 25%;
             }
-            .logo{
-                position: absolute;
-                   top: 0px;
-                   left: 0px;
-                margin: 10px;
-            }
-            h2{
-                text-decoration: underline;
-            }
-            #foot {
-              background-color: black;
-              padding: 5px;
-            }
-            #logoText {
-  font-size: 20px;
-}
-       
+            
 
         </style>
     </head>
     <body>
-       <!-- <div> <img src ="University_of_Missouri_logo.png" width ="100px" height= auto class= "logo"></div> -->
         <h1> Mizzou Minor Match</h1>
         
         <div class= "border signupSize center">
-            <h2 class= "center">Sign Up To Find Your Minor!</h2>
+            <h2 class= "center">LOGIN</h2>
             <input type="text" placeholder="Full Name" id="name"><br>
             <input type="text" placeholder="Email" id="email"><br>
             <input type="text" placeholder="Pawprint" id="user"><br>
             <input type="password" placeholder="Password" id="password"><br>
             <button type="text" id="sub_btn">Sign Up</button>
-            <a href="Signup.html">Already Have an Account?</a> <!-- this needs to be fixed people -->
+            <a href="Signup.html">Need an Account?</a> <!-- this needs to be fixed people -->
         </div>
         <script type="module">
               // Import the functions you need from the SDKs you need
@@ -220,10 +213,7 @@
             
         </script>
         <footer>
-        <!--<div class="footer">
-              <p id="logoText"><img src="MU_UniversitySig_horiz_RGB.png" alt="Missouri Logo">University of Missouri<br></p>
-            </div> -->
-   <span><img src= "MU_UniversitySig_horiz_RGB.png" alt = " "  class = "img"></span> 
+        <span><img src= "MU_UniversitySig_horiz_RGB.png" alt = " "  class = "img"></span> 
         </footer>
     </body>
 </html>
