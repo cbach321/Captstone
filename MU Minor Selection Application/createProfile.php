@@ -22,7 +22,7 @@ if(isset($_POST['submit'])) {
             $fileDest = 'Uploads/'.$fileNewName;
                 
                 move_uploaded_file($fileTmpName, $fileDest);
-               // header("Location: CreateProfile.html?uploadsuccess"); //pls add this back in after testing 
+                header("Location: Home.html"); //pls add this back in after testing 
                 //echo($fileDest);
                 
                 //1. upload files API call
