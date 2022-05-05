@@ -190,7 +190,7 @@
                             fullname: name.value,
                             email: email.value,
                             username: username.value,
-                            password: encPass()
+                            password: password.value
                         })
                         .then(() =>{
                             alert("User added successfully")
@@ -204,10 +204,10 @@
                 })
             }
             
-            function encPass(){
-               var pass12 = CrytoJS.AES.encrypt(pass.value, pass.value);
-               return pass12.toString();
-           }
+//             function encPass(){
+//                var pass12 = CrytoJS.AES.encrypt(pass.value, pass.value);
+//                return pass12.toString();
+//            }
             
             submit.addEventListener('click', registerUser);
             
