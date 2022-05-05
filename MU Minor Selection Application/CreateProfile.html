@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="Codeconvey"/>
 
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet"><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet"><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'> 
        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css'>
        <link rel="stylesheet" href="_createprofile.css">
     </head>
@@ -92,6 +92,7 @@
                     <h3><label for="name">How to Obtain your Unofficial Transcripts</label></h3>
                  
                   <div class="card-body" style = "padding: 15px;">
+                      
                       <p class="mb-10">Step 1: Visit <a href= "https://mizzouone.missouri.edu/task/all/student-information-center" target="_blank"> MizzouOne </a></p>
                       <br>
                       <p class="mb-10">Step 2: Sign in </p>
@@ -104,10 +105,10 @@
                       <br>
                       <p class="mb-10">You will then receive and email with your unofficial transcripts. Please upload this file using the "Upload Transcript" button below then click "Upload" </p>
                       <br>
-                        <th width="30%">Please upload a your transcript document (this can be retrieved off your MyZou Student Account)</th>
+                        <th width="30%"><b>Please upload a your transcript document (this can be retrieved off your MyZou Student Account)</b></th>
                         <td width="2%">:</td>
                        
-                        <form action="createProfile.php" method="POST" enctype="multipart/form-data">
+                        <form style = "padding: 10px;" action="createProfile.php" method="POST" enctype="multipart/form-data">
                             Upload Transcript:
                         <input type="file" name="file" id="file">
                             <button type="submit" name="submit">Upload</button>
