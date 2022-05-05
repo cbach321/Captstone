@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login</title>
+        <style>
+            body{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                width: 100vw;
+                margin: 0px;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <div>
+            <h3>Login</h3>
+
+            <input type="text" placeholder="Pawprint" id="user"><br>
+            <input type="password" placeholder="Password" id="password"><br>
+            <input type="checkbox" id="rememberMe">
+            <label for="rememberMe">Remember me</label><br>
+            <button type="text" id="sub_btn">Login</button><br>
+            <a href="index.html">Create an Account</a>
+        </div>
+    
+        <script type="module">
+              // Import the functions you need from the SDKs you need
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-app.js";
+            import { getDatabase, ref, child, get } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-database.js";
+
+              // TODO: Add SDKs for Firebase products that you want to use
+              // https://firebase.google.com/docs/web/setup#available-libraries
+
+              // Your web app's Firebase configuration
+              // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+              const firebaseConfig = {
+                apiKey: "AIzaSyBJj8-roAqatS4RAvhhivO3-g6C9Kom_-k",
+                authDomain: "muminormatch.firebaseapp.com",
+                databaseURL: "https://muminormatch-default-rtdb.firebaseio.com",
+                projectId: "muminormatch",
+                storageBucket: "muminormatch.appspot.com",
+                messagingSenderId: "24369000206",
+                appId: "1:24369000206:web:e213ef859e9f8c8444315f"
+              };
+
+              // Initialize Firebase
+              const app = initializeApp(firebaseConfig);
+              const db = getDatabase();
+            
+              const username = document.getElementById('user');
+              const pass = document.getElementById('password');
+              const submit = document.getElementById('sub_btn');
+            
+            
+              function authenticateUser(){
+                  const dbRef = ref(db);
+                  
+                  get(child(dbRef, "UsersList/"+ username.value)).then((snapshot) =>{
+                    if(snapshot.exists()){
+//                        let dbpass = decPass(snapshot.val().password);
+//                        if(dbpass == pass.value){
+                            login(snapshot.val());
+                        }
+                        else {
+                            alert("User does not exist");
+                        }
+                  }
+//                    
+//                    else {
+//                        alert("Username or Password is invalid");
+//                    }
+                )};
+              
+            
+//            function decPass(dbpass){
+//                var pass12 = CrytoJS.AES.decrypt(dbpass, pass.value);
+//                return pass12.toString(CryptoJS.enc.Utf8);
+//            }
+            
+            
+            function login(user){
+                let keepLoggedIn = document.getElementById('rememberMe').checked;
+                
+                if(!keepLoggedIn){
+                    sessionStorage.setItem('user', JSON.stringify(user));
+                    window.location="Home.html";
+                    
+                }
+                else{
+                    localStorage.setItem('keepLoggeddIn', 'yes');
+                    localStorage.setItem('user', JSON.stringify(user));
+                    window.location="Home.html";
+                }
+
+                
+            }
+            
+            submit.addEventListener('click', authenticateUser);
+            
+        </script>
+    </body>
+</html>

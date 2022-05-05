@@ -11,17 +11,34 @@ body {
 h2 {
     font-size: 75px;
     text-align: center;
-    color: seashell;
     padding-top: 40px;
+    padding-bottom: 20px;
     color: black;
     font-family: 'Graphik', sans-serif;
+    font-weight: bold;
 
+}
+
+h3 {
+    text-align: center;
+    padding: 15px
+}
+
+.plsWork {
+  color: black;
+  text-align: center;
+  font-weight: bold;
 }
 
 h6 {
     font-size:35px;
     text-align: center;
     padding:20px;
+}
+
+.mainsec {
+    justify-content: center;
+    display: flex;
 }
 
 
@@ -31,32 +48,17 @@ p {
 
 
 .container{
-    display: flex;
+    justify-content: center;
 }
+
 
 
 .col-lg-4 {
-flex: 1;
-    border:2px;
-}
-
-.col-lg-4:first-child{
-    margin-right: 20px;
-}
-/*
-.col-lg-8 {
-    width: 50%;
-    float: left;
-    padding: 20px;
-    border: 2px;
-}
-*/
-
-
-.col-lg-4 {
-    padding: 0px;
-    //box-shadow: -5px -4px 8px #6c6565, 9px 9px 25px #0b0b0b;
+    padding: 10px;
     margin: 10px;
+    display: flex;
+    justify-content: center;
+    float: none;
 }
 
 .col-lg-8 {
@@ -85,16 +87,6 @@ flex: 1;
 
 }
 
-.footer {
- text-align: center;
-          color: #F1B82D;
-         position: absolute;
-          bottom: 0;
-          width: 100%;
-          height: 100px;
-         margin: 5px;
-}
-
 .link {
   color: #F1B82D;
 }
@@ -121,7 +113,28 @@ flex: 1;
 }
 
 .img{
-                margin: 5px;
-                height: auto;
-                width: 25%;
-            }
+    margin: 5px;
+    height: auto;
+    width: 25%;
+}
+
+footer {
+    text-align: center;
+    color: #F1B82D;
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    margin-top: 50px;
+}
+
+.border{
+    border-style: solid;
+    border-width: 60px;
+    border-color: black;
+    justify-content: center;
+    
+}
+
+card shadow-sm {
+    justify-content: center;
+}

@@ -78,7 +78,7 @@
 
 body {
   margin: 0;
-  font-family: sans-serif, "Graphik";
+  font-family: 'Graphik', sans-serif;;
   font-size: var(--bs-body-font-size);
   font-weight: var(--bs-body-font-weight);
   line-height: var(--bs-body-line-height);
@@ -90,7 +90,7 @@ body {
 }
 
 .footer {
-    font-family: sans-serif, "Graphik";
+    font-family:'Graphik', sans-serif;
     background-color: #F1B82D;
 }
 
@@ -5772,7 +5772,7 @@ textarea.form-control-lg {
   z-index: 1080;
   display: block;
   margin: 0;
-   font-family: Sans-Serif "Graphik";
+   font-family: 'Graphik', sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -5874,7 +5874,7 @@ textarea.form-control-lg {
   z-index: 1070;
   display: block;
   max-width: 276px;
-  font-family: Sans-Serif "Graphik";
+  font-family: 'Graphik', sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -7603,7 +7603,7 @@ textarea.form-control-lg {
 }
 
 .font-monospace {
-   font-family: Sans-Serif "Graphik" !important;
+   font-family: 'Graphik', sans-serif !important;
 }
 
 .fs-1 {
